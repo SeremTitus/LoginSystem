@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoginSystem</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <ul class="nav nav-tabs justify-content-center" id="tabs">
+          <li class="nav-item">
+            <a onclick="switchtab('login')" class="nav-link active" href="#login" id="ltab">Login</a>
+          </li>
+          <li class="nav-item">
+            <a onclick="switchtab('signup')" class="nav-link" href="#signup" id="stab">Signup</a>
+          </li>
+        </ul>
+        <a onclick="switchtab('login')" class="btn btn-primary fade" href="#login" id="backbtn">Back</a>
+
+        <div class="tab-content">
+          <div class="tab-pane active show" id="login">
+            <form action="login.php" method="post">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              </form>
+              <div style="display: grid;">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a onclick="switchtab('forgot')" href="#forgot">Forgot password</a>
+              </div>              
+            </form>
+          </div>
+          <div class="tab-pane fade" id="signup">
+            <form action="signup.php" method="post">
+              <div class="mb-3">
+                <label for="reg" class="form-label">Reg no</div>label>
+                <input type="text" class="form-control" id="reg" name="reg" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">phone</label>
+                <input type="phone" class="form-control" id="phone" name="phone" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass" required>
+              </div>
+              <div style="display: grid;">
+                <button type="submit" class="btn btn-primary">Signup</button>
+              </div>              
+            </form>
+          </div>
+          <div class="tab-pane fade" id="forgot">
+            <h2>Account recovery: forgot password</h2>
+            <form action="forgot.php" method="post">
+              <div class="mb-3">
+                <label for="name" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="name" required>
+              </div>
+              <div style="display: grid;">
+                <button type="submit" class="btn btn-primary">Send recovery code</button>
+              </div>              
+            </form>
+          </div>
+          <div class="tab-pane fade" id="entercode">
+            <h2>Account recovery: Enter Code</h2>
+            <form action="code.php" method="post">
+              <div class="mb-3">
+                <label for="code">Enter the code sent to your email</label>
+                <input required type="text" name="code" id="code"/>
+              </div>
+              <div style="display: grid;">
+                <button type="submit" class="btn btn-primary">Send recovery code</button>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="reset code">
+            <h2>Reset password</h2>
+            <form action="code.php" method="post">
+              <div class="mb-3">
+                <p>Enter New password</p>
+                <input required type="password" id='password'>
+              </div>
+              <div class="mb-3">
+                <p>Confirm Password</p>
+                <input required type="password" id='password_match'>
+              </div>
+              <div style="display: grid;">
+                <button type="submit" class="btn btn-primary">Reset</button>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane fade" id="dashboard">
+            <h2>Dashboard</h2>
+            <br>
+            <div class="nav">
+              <div class="account">Hello <a> <?php if ($data['email']) { echo $data['email']; } else { echo "jone doe"; }?>
+              </a><a href="logout.php"><i class="fas fa-arrow-right-from-bracket"></i></a></div>
+          </div>
+            <p><h3>Search for user</h3></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
